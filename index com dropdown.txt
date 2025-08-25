@@ -1,0 +1,89 @@
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { RiArrowUpWideFill } from "react-icons/ri";
+import './index.css'
+
+function Home() {
+    const [openLogin, setOpenLogin] = useState(false);
+    const [openCadastro, setOpenCadastro] = useState(false);
+
+    return (
+        <header className="navbar">
+            <div className="container">
+                <div className="logo">BRAPY</div>
+                <nav className="link-btt">
+                    <ul className="links">
+                        <li className="active"><NavLink to="#">Home</NavLink></li>
+                        <li className="active"><NavLink to="/">Sobre</NavLink></li>
+                        <li className="active"><NavLink to="/">Contato</NavLink></li>
+                    </ul>
+                    <ul className="nav-login">
+                        {/* Botão de login com dropdown */}
+                        <li style={{ position: "relative" }}>
+                            <button onClick={() => { setOpenLogin(!openLogin); setOpenCadastro(false); }} className="menu-btn">Login{" "}<RiArrowUpWideFill style={{ marginLeft: "5px", transform: openLogin ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s", }} /></button>
+                            {openLogin && (
+                                <div className="dropdown">
+                                    <NavLink to="/login-cliente">Entrar como cliente</NavLink>
+                                    <NavLink to="/login-freteiro">Entrar como freteiro</NavLink>
+                                </div>
+                            )}
+                        </li>
+                    </ul>
+                    <ul className="nav-cadastro ">
+                        {/* Botão de login com dropdown */}
+                        <li style={{ position: "relative" }}>
+                            <button onClick={() => { setOpenCadastro(!openCadastro); setOpenLogin(false); }} className="menu-btn">Cadastre-se{" "}<RiArrowUpWideFill style={{ marginLeft: "5px", transform: openCadastro ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s", }} /></button>
+                            {openCadastro && (
+                                <div className="dropdown">
+                                    <NavLink to="/cadastro-cliente">Quero ser cliente</NavLink>
+                                    <NavLink to="/cadastro-freteiro">Quero ser fretero</NavLink>
+                                </div>
+                            )}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <main className="main">
+                <div className="conteudo">
+                    <h1>Conectamos quem precisa importar <br/>com quem já está vindo do Paraguai</h1>
+                    <p>Importe com confiança e pague menos. Transporte com segurança e ganhe dinheiro extra.</p>
+                </div>
+
+            </main>
+        </header>
+    )
+}
+
+export default Home;
+
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  /* começa do meio do botão */
+  transform: translateX(-50%);
+  /* puxa pro centro */
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+  min-width: 200px;
+  text-align: center;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.dropdown a {
+  padding: 10px;
+  text-decoration: none;
+  color: #222;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.dropdown a:hover {
+  background-color: #f0f0f0;
+}

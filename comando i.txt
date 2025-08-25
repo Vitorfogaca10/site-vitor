@@ -1,0 +1,70 @@
+// npm create vite@latest // Cria VITE
+// npm install // Instala todas dependencias 
+// npm install tailwindcss @tailwindcss/vite // Install tailwindcss and vite 
+// npm install react-router-dom // Install Rotas 
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+
+
+
+                    <div className="content">
+                <div className="importador">
+                    <h2 className="titulo">Importador</h2>
+                    <p>Conecte-se com transportadores de confiança e realiza <br/>suas importações de forma segura e eficiente.</p>
+                    <h4>Segurança garantida e pagamento só após entrega confirmada.</h4>
+                    <li><NavLink to="#">Comece agora</NavLink></li>
+                </div>
+                <div className="transportador">
+                    <h2 className="titulo">Transportador</h2>
+                    <p>Ganhe uma renda extra transportando produtos de forma segura e organizada.</p>
+                    <h4>Ganhe de forma justa com recebimento imediato após entrega.</h4>
+                    <li><NavLink to="#">Comece agora</NavLink></li>
+                </div>
+                </div>
+
+ .importador, .transportador {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;     
+  min-height: 25vh;       
+  padding: 15px 20px ;
+  width: 65vh;
+  border-radius: 30px;
+  background-color: #111111;
+  color: #fff;
+  margin-top: 60px;
+  margin-left: 100px;
+  box-shadow: 0 0 10px rgba(201, 197, 197, 0.6);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.9);
+}
+
+
+.content{ 
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+  gap: 40px;                      /* Espaço entre elas */
+  justify-content: center;
+  padding: 40px;
+  width: 100%;
+}
+
+.importador p, .transportador p {
+  padding: 10px 0 ;
+}
+
+.importador li , .transportador li {
+  margin-top: 15px;
+  border-radius: 30px;
+  background-color: #e36809;
+  padding: 10px;
+  width: 20vh;
+  box-shadow: 0 0 10px rgba(183, 70, 0, 0.6);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.9);
+
+}
+.importador li:hover , .transportador li:hover{
+  transform: translateY(-3px);
+  transition: all 0.2s;
+}
